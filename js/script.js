@@ -89,12 +89,38 @@ function initMobileNav() {
     toggleBtn.setAttribute('aria-expanded', 'false');
   };
 
-  toggleBtn.addEventListener('click', openDrawer);
-  if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
-  if (backdrop) backdrop.addEventListener('click', closeDrawer);
+  const toggleDrawer = () => {
+    if (mobileNav.classList.contains('open')) {
+      closeDrawer();
+    } else {
+      openDrawer();
+    }
+  };
+
+  toggleBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    toggleDrawer();
+  });
+
+  if (closeBtn) {
+    closeBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      closeDrawer();
+    });
+  }
+
+  if (backdrop) {
+    backdrop.addEventListener('click', (e) => {
+      e.preventDefault();
+      closeDrawer();
+    });
+  }
 
   navLinks.forEach(link => {
-    link.addEventListener('click', closeDrawer);
+    link.addEventListener('click', () => {
+      closeDrawer();
+    });
   });
 
   document.addEventListener('keydown', (e) => {
@@ -113,17 +139,22 @@ function initSmoothScroll() {
   links.forEach(link => {
     link.addEventListener('click', function(e) {
       const targetId = this.getAttribute('href');
+      if (!targetId || targetId === '#') return;
+
       const targetElement = document.querySelector(targetId);
 
       if (targetElement) {
         e.preventDefault();
-        const headerHeight = document.querySelector('.site-header')?.offsetHeight || 80;
-        const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight + 10;
-
-        window.scrollTo({
-          top: targetPosition,
-          behavior: 'smooth'
-        });
+        const headerHeight = document.querySelector('.site-header')?.offsetHeight || 75;
+        
+        // Brief timeout ensures mobile drawer overflow unfreezes before scrolling
+        setTimeout(() => {
+          const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight + 5;
+          window.scrollTo({
+            top: Math.max(0, targetPosition),
+            behavior: 'smooth'
+          });
+        }, 60);
       }
     });
   });
@@ -238,44 +269,38 @@ function initPortfolioFiltersAndLightbox() {
   const portfolioCards = document.querySelectorAll('.portfolio-card');
   const loadMoreBtn = document.getElementById('portfolioLoadMore');
 
-  let currentCategory = 'all';
+  let currentCategory = 'bridal';
+
+  const applyCategoryFilter = (filterValue) => {
+    currentCategory = filterValue;
+    filterBtns.forEach(b => {
+      if (b.getAttribute('data-filter') === filterValue) {
+        b.classList.add('active');
+      } else {
+        b.classList.remove('active');
+      }
+    });
+
+    portfolioCards.forEach(card => {
+      const itemCat = card.getAttribute('data-category');
+      if (itemCat === filterValue) {
+        card.classList.remove('hidden');
+      } else {
+        card.classList.add('hidden');
+      }
+    });
+  };
 
   // Filter items
   filterBtns.forEach(btn => {
     btn.addEventListener('click', () => {
-      filterBtns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-
-      const filterValue = btn.getAttribute('data-filter');
-      currentCategory = filterValue;
-
-      portfolioCards.forEach(card => {
-        const itemCat = card.getAttribute('data-category');
-        if (filterValue === 'all' || itemCat === filterValue) {
-          card.classList.remove('hidden');
-        } else {
-          card.classList.add('hidden');
-        }
-      });
-
-      // Update visible items state
-      if (loadMoreBtn) {
-        loadMoreBtn.style.display = 'none'; // Everything shown when filtered
-      }
+      const filterValue = btn.getAttribute('data-filter') || 'bridal';
+      applyCategoryFilter(filterValue);
     });
   });
 
-  // Load more button logic
-  if (loadMoreBtn) {
-    loadMoreBtn.addEventListener('click', () => {
-      const extraCards = document.querySelectorAll('.portfolio-card.extra-item');
-      extraCards.forEach(card => card.classList.remove('hidden'));
-      loadMoreBtn.textContent = 'Showing All Curated Looks';
-      loadMoreBtn.disabled = true;
-      loadMoreBtn.style.opacity = '0.6';
-      loadMoreBtn.style.cursor = 'default';
-    });
-  }
+  // Initialize with bridal active
+  applyCategoryFilter('bridal');
 
   // --- LIGHTBOX MODAL ---
   const modal = document.querySelector('.lightbox-modal');
@@ -295,18 +320,32 @@ function initPortfolioFiltersAndLightbox() {
     if (!currentVisibleCards[index]) return;
     const card = currentVisibleCards[index];
     const img = card.querySelector('img');
-    const title = card.querySelector('.portfolio-card-title')?.textContent || 'Bridal & Beauty Artistry';
-    const tag = card.querySelector('.portfolio-tag')?.textContent || 'Glam & Grace';
+    const title = card.dataset.title || 
+                  card.querySelector('.glam-card-name')?.textContent || 
+                  card.querySelector('.glam-overlay-title')?.textContent || 
+                  card.querySelector('.portfolio-card-title')?.textContent || 
+                  'Bridal & Beauty Artistry';
+    const tag = card.dataset.badge || 
+                card.dataset.tag || 
+                card.querySelector('.glam-chip')?.textContent || 
+                card.querySelector('.glam-overlay-tag')?.textContent || 
+                card.querySelector('.portfolio-tag')?.textContent || 
+                'Glam & Grace';
 
-    modalImg.src = img.src;
-    modalImg.alt = img.alt || title;
+    const imgSrc = card.dataset.img || (img ? img.src : '');
+    modalImg.src = imgSrc;
+    modalImg.alt = img?.alt || title;
     if (modalTitle) modalTitle.textContent = title;
     if (modalCat) modalCat.textContent = tag;
     currentIndex = index;
   };
 
-  const openLightbox = (card) => {
-    currentVisibleCards = Array.from(portfolioCards).filter(c => !c.classList.contains('hidden'));
+  const openLightbox = (card, cardGroup) => {
+    if (cardGroup && cardGroup.length > 0) {
+      currentVisibleCards = Array.from(cardGroup);
+    } else {
+      currentVisibleCards = Array.from(portfolioCards).filter(c => !c.classList.contains('hidden'));
+    }
     currentIndex = currentVisibleCards.indexOf(card);
     if (currentIndex === -1) currentIndex = 0;
 
@@ -340,6 +379,71 @@ function initPortfolioFiltersAndLightbox() {
       }
     });
   });
+
+  // --- A LITTLE MORE GLAM SPOTLIGHT STAGE SWITCHER ---
+  const spotlightStage = document.getElementById('glamSpotlightStage');
+  const spotlightImg = document.getElementById('glamSpotlightImg');
+  const spotlightBadge = document.getElementById('glamSpotlightBadge');
+  const spotlightTag = document.getElementById('glamSpotlightTag');
+  const spotlightTitle = document.getElementById('glamSpotlightTitle');
+  const spotlightDesc = document.getElementById('glamSpotlightDesc');
+  const selectCards = document.querySelectorAll('.glam-select-card');
+
+  let activeGlamIndex = 0;
+
+  const setSpotlight = (card, index) => {
+    if (!card) return;
+    activeGlamIndex = index;
+    selectCards.forEach(c => c.classList.remove('active'));
+    card.classList.add('active');
+
+    const img = card.dataset.img;
+    const badge = card.dataset.badge;
+    const tag = card.dataset.tag;
+    const title = card.dataset.title;
+    const desc = card.dataset.desc;
+
+    if (spotlightImg && img) {
+      spotlightImg.classList.add('glam-fade-out');
+      setTimeout(() => {
+        spotlightImg.src = img;
+        spotlightImg.alt = title;
+        if (spotlightBadge) spotlightBadge.textContent = badge;
+        if (spotlightTag) spotlightTag.textContent = tag;
+        if (spotlightTitle) spotlightTitle.textContent = title;
+        if (spotlightDesc) spotlightDesc.textContent = desc;
+        spotlightImg.classList.remove('glam-fade-out');
+      }, 150);
+    }
+  };
+
+  selectCards.forEach((card, idx) => {
+    card.addEventListener('click', () => {
+      setSpotlight(card, idx);
+    });
+    card.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        setSpotlight(card, idx);
+      }
+    });
+  });
+
+  if (spotlightStage) {
+    spotlightStage.addEventListener('click', () => {
+      if (selectCards.length > 0) {
+        openLightbox(selectCards[activeGlamIndex], selectCards);
+      }
+    });
+    spotlightStage.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        if (selectCards.length > 0) {
+          openLightbox(selectCards[activeGlamIndex], selectCards);
+        }
+      }
+    });
+  }
 
   if (closeBtn) closeBtn.addEventListener('click', closeLightbox);
   if (nextBtn) nextBtn.addEventListener('click', showNext);

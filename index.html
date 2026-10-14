@@ -10,7 +10,7 @@
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%2338252D'/><text x='50%' y='62%' text-anchor='middle' font-family='serif' font-size='50' fill='%23C6A477'>G</text></svg>">
 
   <!-- Core CSS -->
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css?v=2.1">
 </head>
 <body>
 
@@ -118,6 +118,34 @@
 
         </div>
       </div>
+
+      <!-- Elegant Luxury Silk & Gold Divider Transition -->
+      <div class="hero-luxury-divider" aria-hidden="true">
+        <svg class="divider-svg" viewBox="0 0 1440 90" fill="none" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Ambient Champagne Shimmer Ribbon -->
+          <path d="M0,28 C340,68 760,12 1100,50 C1260,66 1370,40 1440,32 L1440,90 L0,90 Z" fill="rgba(198, 164, 119, 0.22)" />
+          <!-- Soft Rose Gold Secondary Whisper -->
+          <path d="M0,42 C280,78 650,22 980,62 C1180,82 1340,54 1440,48 L1440,90 L0,90 Z" fill="rgba(183, 125, 131, 0.15)" />
+          <!-- Main Seamless Ivory Surface (matches #about section) -->
+          <path d="M0,45 C320,82 720,24 1060,58 C1240,76 1360,56 1440,48 L1440,90 L0,90 Z" fill="#F7F1E9" />
+          <!-- Fine Champagne Gold Hairline Accent -->
+          <path d="M0,45 C320,82 720,24 1060,58 C1240,76 1360,56 1440,48" stroke="url(#champagneSilkGrad)" stroke-width="1.5" fill="none" />
+          <defs>
+            <linearGradient id="champagneSilkGrad" x1="0" y1="0" x2="1440" y2="0" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#C6A477" stop-opacity="0.1" />
+              <stop offset="25%" stop-color="#DFC4A2" stop-opacity="0.85" />
+              <stop offset="50%" stop-color="#D4AF37" stop-opacity="0.95" />
+              <stop offset="75%" stop-color="#DFC4A2" stop-opacity="0.8" />
+              <stop offset="100%" stop-color="#C6A477" stop-opacity="0.15" />
+            </linearGradient>
+          </defs>
+        </svg>
+        <div class="divider-jewel-accent">
+          <span class="jewel-line"></span>
+          <span class="jewel-sparkle">&#10022;</span>
+          <span class="jewel-line"></span>
+        </div>
+      </div>
     </section>
 
     <!-- ==========================================================================
@@ -132,7 +160,6 @@
             <div class="intro-arch-frame">
               <img src="assets/images/studio_interior.jpg" alt="Glam & Grace Beauty Studio interior with arched vanity mirrors, warm amber bulbs, and marble styling counter" loading="lazy" width="600" height="720">
             </div>
-            <div class="intro-feature-pill">✦ Private Suite Experience</div>
           </div>
 
           <!-- Philosophy Copy -->
@@ -198,7 +225,7 @@
                 From romantic textured curls to timeless royal bridal buns with fresh flora, discover hairstyles sculpted to complete your look flawlessly.
               </p>
               <div class="service-card-footer">
-                <a href="#hair-studio" class="text-link">Explore Hair Studio <span>&rarr;</span></a>
+                <a href="#services-detail" class="text-link">Explore Hair Artistry <span>&rarr;</span></a>
               </div>
             </div>
           </article>
@@ -333,10 +360,9 @@
           <p class="section-subtitle">Explore our curated gallery of brides, red carpet reception glam, and precision styling.</p>
         </div>
 
-        <!-- Filter Buttons (All 7 Required Categories) -->
+        <!-- Filter Buttons (6 Curated Categories, starting from Bridal) -->
         <nav class="portfolio-filter-nav" aria-label="Portfolio Category Filters">
-          <button class="filter-btn active" data-filter="all">All Looks</button>
-          <button class="filter-btn" data-filter="bridal">Bridal</button>
+          <button class="filter-btn active" data-filter="bridal">Bridal</button>
           <button class="filter-btn" data-filter="engagement">Engagement</button>
           <button class="filter-btn" data-filter="reception">Reception</button>
           <button class="filter-btn" data-filter="hair">Hair</button>
@@ -344,146 +370,141 @@
           <button class="filter-btn" data-filter="skincare">Skincare</button>
         </nav>
 
-        <!-- Gallery Grid -->
+        <!-- Gallery Grid (Curated 2 per category = 12 total, compact on mobile) -->
         <div class="portfolio-grid" id="portfolioGrid">
           
-          <!-- 1: Bridal Look -->
-          <div class="portfolio-card" data-category="bridal" tabindex="0" role="button" aria-label="View Royal Crimson Bride portrait">
+          <!-- 1: Bridal Look 1 -->
+          <div class="portfolio-card" data-category="bridal" tabindex="0" role="button" aria-label="View Royal Velvet Crimson portrait">
             <img src="assets/images/bride_royal_crimson.jpg" alt="Royal crimson bridal makeup look with kundan jewelry" loading="lazy">
             <div class="portfolio-zoom-icon" aria-hidden="true">⤢</div>
             <div class="portfolio-card-info">
               <span class="portfolio-tag">Bridal Artistry</span>
               <h3 class="portfolio-card-title">Royal Velvet Crimson</h3>
-              <p class="portfolio-card-sub">Smoky kohl eyes, warm berry lips & polki nath</p>
+              <p class="portfolio-card-sub">Smoky kohl eyes, warm berry lips &amp; polki nath</p>
             </div>
           </div>
 
-          <!-- 2: Hair Bun -->
-          <div class="portfolio-card" data-category="hair" tabindex="0" role="button" aria-label="View Traditional Gajra Bun hairstyle">
-            <img src="assets/images/hair_artistry_bun.jpg" alt="Intricate hair bun with fresh jasmine gajra garland" loading="lazy">
-            <div class="portfolio-zoom-icon" aria-hidden="true">⤢</div>
-            <div class="portfolio-card-info">
-              <span class="portfolio-tag">Hair Artistry</span>
-              <h3 class="portfolio-card-title">Traditional Jasmine Bun</h3>
-              <p class="portfolio-card-sub">Sculpted textured crown with fresh baby roses</p>
-            </div>
-          </div>
-
-          <!-- 3: Bridal Pastel -->
-          <div class="portfolio-card" data-category="bridal" tabindex="0" role="button" aria-label="View Pastel Blush Bride portrait">
+          <!-- 2: Bridal Look 2 -->
+          <div class="portfolio-card" data-category="bridal" tabindex="0" role="button" aria-label="View Pastel Blush Grace portrait">
             <img src="assets/images/bride_pastel_blush.jpg" alt="Contemporary bride in blush pink lehenga" loading="lazy">
             <div class="portfolio-zoom-icon" aria-hidden="true">⤢</div>
             <div class="portfolio-card-info">
               <span class="portfolio-tag">Bridal Artistry</span>
               <h3 class="portfolio-card-title">Pastel Blush Grace</h3>
-              <p class="portfolio-card-sub">Dewy glass skin finish & soft shimmer lids</p>
+              <p class="portfolio-card-sub">Dewy glass skin finish &amp; soft shimmer lids</p>
             </div>
           </div>
 
-          <!-- 4: Reception Glam -->
-          <div class="portfolio-card" data-category="reception" tabindex="0" role="button" aria-label="View Royal Saree and Reception Glamour portrait">
-            <img src="assets/images/bride_reception_glam.jpg" alt="Regal bride in emerald green silk saree with kundan polki jewellery" loading="lazy">
+          <!-- 3: Engagement Look 1 -->
+          <div class="portfolio-card hidden" data-category="engagement" tabindex="0" role="button" aria-label="View Lilac Blossom Engagement portrait">
+            <img src="assets/images/portfolio_engagement_1.jpg" alt="Beautiful Indian engagement bride in pastel lilac lehenga with fine diamond jewellery" loading="lazy">
+            <div class="portfolio-zoom-icon" aria-hidden="true">⤢</div>
+            <div class="portfolio-card-info">
+              <span class="portfolio-tag">Engagement Glam</span>
+              <h3 class="portfolio-card-title">Lilac Blossom Elegance</h3>
+              <p class="portfolio-card-sub">Soft rose glow, delicate diamond choker &amp; joyful smile</p>
+            </div>
+          </div>
+
+          <!-- 4: Engagement Look 2 -->
+          <div class="portfolio-card hidden" data-category="engagement" tabindex="0" role="button" aria-label="View Champagne Shimmer Sagan portrait">
+            <img src="assets/images/portfolio_engagement_2.jpg" alt="Stunning engagement bride in champagne gold sequined designer lehenga with polki necklace" loading="lazy">
+            <div class="portfolio-zoom-icon" aria-hidden="true">⤢</div>
+            <div class="portfolio-card-info">
+              <span class="portfolio-tag">Engagement Glam</span>
+              <h3 class="portfolio-card-title">Champagne Shimmer Sagan</h3>
+              <p class="portfolio-card-sub">Polki choker, bronze champagne lids &amp; romantic soft curls</p>
+            </div>
+          </div>
+
+          <!-- 5: Reception Look 1 -->
+          <div class="portfolio-card hidden" data-category="reception" tabindex="0" role="button" aria-label="View Midnight Sapphire Gala portrait">
+            <img src="assets/images/portfolio_reception_1.jpg" alt="Glamorous reception bride in midnight blue velvet embroidered gown with diamond necklace" loading="lazy">
             <div class="portfolio-zoom-icon" aria-hidden="true">⤢</div>
             <div class="portfolio-card-info">
               <span class="portfolio-tag">Reception Glam</span>
-              <h3 class="portfolio-card-title">Emerald Heritage Radiance</h3>
-              <p class="portfolio-card-sub">Luminous kohl eyes, glass finish &amp; kundan polki adornments</p>
+              <h3 class="portfolio-card-title">Midnight Sapphire Gala</h3>
+              <p class="portfolio-card-sub">Silver smokey eyes, diamond necklace &amp; Hollywood waves</p>
             </div>
           </div>
 
-          <!-- 5: Makeup Artistry Detail -->
-          <div class="portfolio-card" data-category="makeup" tabindex="0" role="button" aria-label="View Soft Glam Makeup Artistry detail">
+          <!-- 6: Reception Look 2 -->
+          <div class="portfolio-card hidden" data-category="reception" tabindex="0" role="button" aria-label="View Emerald Luxe Cocktail portrait">
+            <img src="assets/images/portfolio_reception_2.jpg" alt="Gorgeous reception bride in emerald green sequined cocktail lehenga with layered emerald choker" loading="lazy">
+            <div class="portfolio-zoom-icon" aria-hidden="true">⤢</div>
+            <div class="portfolio-card-info">
+              <span class="portfolio-tag">Reception Glam</span>
+              <h3 class="portfolio-card-title">Emerald Luxe Cocktail</h3>
+              <p class="portfolio-card-sub">Uncut diamond choker, golden bronze lids &amp; sculpted red-carpet glow</p>
+            </div>
+          </div>
+
+          <!-- 7: Hair Look 1 (Bun) -->
+          <div class="portfolio-card hidden" data-category="hair" tabindex="0" role="button" aria-label="View Traditional Jasmine Bun hairstyle">
+            <img src="assets/images/hair_artistry_bun.jpg" alt="Intricate hair bun with fresh jasmine gajra garland" loading="lazy">
+            <div class="portfolio-zoom-icon" aria-hidden="true">⤢</div>
+            <div class="portfolio-card-info">
+              <span class="portfolio-tag">Hair Artistry</span>
+              <h3 class="portfolio-card-title">Traditional Jasmine Bun</h3>
+              <p class="portfolio-card-sub">Sculpted textured crown with fresh baby roses &amp; fragrant gajra</p>
+            </div>
+          </div>
+
+          <!-- 8: Hair Look 2 (Waves & Flora) -->
+          <div class="portfolio-card hidden" data-category="hair" tabindex="0" role="button" aria-label="View Cascading Flora Waves hairstyle">
+            <img src="assets/images/portfolio_hair_style.jpg" alt="Luxurious bridal cascading romantic waves with pearl pins and baby's breath floral vine" loading="lazy">
+            <div class="portfolio-zoom-icon" aria-hidden="true">⤢</div>
+            <div class="portfolio-card-info">
+              <span class="portfolio-tag">Hair Artistry</span>
+              <h3 class="portfolio-card-title">Cascading Flora Waves</h3>
+              <p class="portfolio-card-sub">Voluminous polished curls with pearl pins &amp; baby's breath vine</p>
+            </div>
+          </div>
+
+          <!-- 9: Makeup Look 1 (Closeup Soft Glam) -->
+          <div class="portfolio-card hidden" data-category="makeup" tabindex="0" role="button" aria-label="View Soft Glam Makeup Artistry detail">
             <img src="assets/images/makeup_closeup.jpg" alt="Radiant makeup close-up with champagne eyeshadow" loading="lazy">
             <div class="portfolio-zoom-icon" aria-hidden="true">⤢</div>
             <div class="portfolio-card-info">
               <span class="portfolio-tag">Makeup Artistry</span>
               <h3 class="portfolio-card-title">Champagne Glow Soft Glam</h3>
-              <p class="portfolio-card-sub">Precision winged liner & mauve gloss</p>
+              <p class="portfolio-card-sub">Precision winged liner, glass skin highlight &amp; mauve gloss</p>
             </div>
           </div>
 
-          <!-- 6: Skincare -->
-          <div class="portfolio-card" data-category="skincare" tabindex="0" role="button" aria-label="View Luxury Facial Skincare session">
+          <!-- 10: Makeup Look 2 (Simple Girl Makeup) -->
+          <div class="portfolio-card hidden" data-category="makeup" tabindex="0" role="button" aria-label="View Clean Girl Occasion Makeup">
+            <img src="assets/images/portfolio_makeup_girl.jpg" alt="Beautiful modern girl with clean, simple minimalist day makeup and glowing skin" loading="lazy">
+            <div class="portfolio-zoom-icon" aria-hidden="true">⤢</div>
+            <div class="portfolio-card-info">
+              <span class="portfolio-tag">Occasion Makeup</span>
+              <h3 class="portfolio-card-title">Clean Girl Radiance</h3>
+              <p class="portfolio-card-sub">Fresh minimalist day glam, feathered brows &amp; sheer peach flush</p>
+            </div>
+          </div>
+
+          <!-- 11: Skincare Look 1 (Facial Therapy) -->
+          <div class="portfolio-card hidden" data-category="skincare" tabindex="0" role="button" aria-label="View Luxury Facial Skincare session">
             <img src="assets/images/skincare_facial.jpg" alt="Relaxing facial and pre-bridal skin therapy" loading="lazy">
             <div class="portfolio-zoom-icon" aria-hidden="true">⤢</div>
             <div class="portfolio-card-info">
               <span class="portfolio-tag">Skincare Ritual</span>
               <h3 class="portfolio-card-title">Botanical Hydration Facial</h3>
-              <p class="portfolio-card-sub">Deep cleansing & rose quartz serum infusion</p>
+              <p class="portfolio-card-sub">Deep cleansing therapy &amp; rose quartz serum infusion</p>
             </div>
           </div>
 
-          <!-- 7: Hair Waves -->
-          <div class="portfolio-card" data-category="hair" tabindex="0" role="button" aria-label="View Romantic Cascading Waves hairstyle">
-            <img src="assets/images/hair_romantic_waves.jpg" alt="Cascading textured curls with floral accents" loading="lazy">
+          <!-- 12: Skincare Look 2 (Post-Treatment Glow) -->
+          <div class="portfolio-card hidden" data-category="skincare" tabindex="0" role="button" aria-label="View Post-Treatment Glass Glow">
+            <img src="assets/images/portfolio_skincare_glow.jpg" alt="Glowing radiant clear glass skin after luxury botanical spa facial treatment" loading="lazy">
             <div class="portfolio-zoom-icon" aria-hidden="true">⤢</div>
             <div class="portfolio-card-info">
-              <span class="portfolio-tag">Hair Artistry</span>
-              <h3 class="portfolio-card-title">Cascading Romantic Curls</h3>
-              <p class="portfolio-card-sub">Voluminous polished waves with baby's breath</p>
+              <span class="portfolio-tag">Skincare Ritual</span>
+              <h3 class="portfolio-card-title">Post-Treatment Glass Glow</h3>
+              <p class="portfolio-card-sub">Intense dermal barrier nourishment &amp; lit-from-within luminosity</p>
             </div>
           </div>
 
-          <!-- 8: Engagement Look -->
-          <div class="portfolio-card" data-category="engagement" tabindex="0" role="button" aria-label="View Engagement Look portrait">
-            <img src="assets/images/portfolio_engagement.jpg" alt="Radiant engagement makeup look" loading="lazy">
-            <div class="portfolio-zoom-icon" aria-hidden="true">⤢</div>
-            <div class="portfolio-card-info">
-              <span class="portfolio-tag">Engagement Look</span>
-              <h3 class="portfolio-card-title">Radiant Sunset Sparkle</h3>
-              <p class="portfolio-card-sub">Warm peach undertones & fluttery lashes</p>
-            </div>
-          </div>
-
-          <!-- 9: Hair Braid -->
-          <div class="portfolio-card" data-category="hair" tabindex="0" role="button" aria-label="View Floral Bridal Fishtail Braid hairstyle">
-            <img src="assets/images/hair_braid_flowers.jpg" alt="Intricate bridal fishtail braid with floral buds" loading="lazy">
-            <div class="portfolio-zoom-icon" aria-hidden="true">⤢</div>
-            <div class="portfolio-card-info">
-              <span class="portfolio-tag">Hair Artistry</span>
-              <h3 class="portfolio-card-title">Floral Fishtail Braid</h3>
-              <p class="portfolio-card-sub">Intricate weave with fresh baby jasmine pearls</p>
-            </div>
-          </div>
-
-          <!-- 10: Festive Makeup (Extra Item) -->
-          <div class="portfolio-card extra-item" data-category="makeup" tabindex="0" role="button" aria-label="View Golden Festive Occasion Makeup">
-            <img src="assets/images/portfolio_festive.jpg" alt="Golden festive occasion makeup with bold eyes" loading="lazy">
-            <div class="portfolio-zoom-icon" aria-hidden="true">⤢</div>
-            <div class="portfolio-card-info">
-              <span class="portfolio-tag">Occasion Makeup</span>
-              <h3 class="portfolio-card-title">Gilded Festive Radiance</h3>
-              <p class="portfolio-card-sub">Gold foil accents with classic red satin lip</p>
-            </div>
-          </div>
-
-          <!-- 11: Textured Low Bun (Extra Item) -->
-          <div class="portfolio-card extra-item" data-category="hair" tabindex="0" role="button" aria-label="View Modern Textured Low Bun">
-            <img src="assets/images/hair_textured_bun.jpg" alt="Modern textured low bridal bun" loading="lazy">
-            <div class="portfolio-zoom-icon" aria-hidden="true">⤢</div>
-            <div class="portfolio-card-info">
-              <span class="portfolio-tag">Hair Artistry</span>
-              <h3 class="portfolio-card-title">Architectural Low Knot</h3>
-              <p class="portfolio-card-sub">Clean minimalist styling for modern brides</p>
-            </div>
-          </div>
-
-          <!-- 12: Skincare Flatlay (Extra Item) -->
-          <div class="portfolio-card extra-item" data-category="skincare" tabindex="0" role="button" aria-label="View Luxury Skincare Formulations">
-            <img src="assets/images/portfolio_skincare_flatlay.jpg" alt="Aesthetic skincare formulations and essential oils" loading="lazy">
-            <div class="portfolio-zoom-icon" aria-hidden="true">⤢</div>
-            <div class="portfolio-card-info">
-              <span class="portfolio-tag">Skincare Formulation</span>
-              <h3 class="portfolio-card-title">Holistic Pre-Bridal Care</h3>
-              <p class="portfolio-card-sub">Customized dermal serums and barrier support</p>
-            </div>
-          </div>
-
-        </div>
-
-        <!-- Working Load More Action -->
-        <div class="portfolio-load-more">
-          <button class="btn btn-outline" id="portfolioLoadMore">Load More Looks</button>
         </div>
 
       </div>
@@ -624,76 +645,7 @@
       </div>
     </section>
 
-    <!-- ==========================================================================
-         THE HAIR STUDIO GALLERY & CAROUSEL
-         ========================================================================== -->
-    <section class="section section-ivory-warm" id="hair-studio">
-      <div class="container">
-        
-        <div class="section-header">
-          <span class="eyebrow">STYLES FOR EVERY OCCASION</span>
-          <h2 class="section-title">The Hair Studio</h2>
-          <p class="section-subtitle">From regal floral bridal buns to breezy Hollywood waves, discover artistry that crowns your celebration.</p>
-        </div>
 
-        <div class="hair-carousel-wrap">
-          <div class="hair-grid">
-            
-            <!-- Hair Card 1 -->
-            <div class="hair-card">
-              <div class="hair-img-box">
-                <img src="assets/images/hair_artistry_bun.jpg" alt="Traditional floral bridal bun with fresh jasmine" loading="lazy">
-              </div>
-              <div class="hair-card-info">
-                <h3 class="hair-card-title">Classic Bridal Bun</h3>
-                <span class="hair-card-style">Fresh Gajra &amp; Roses</span>
-              </div>
-            </div>
-
-            <!-- Hair Card 2 -->
-            <div class="hair-card">
-              <div class="hair-img-box">
-                <img src="assets/images/hair_romantic_waves.jpg" alt="Romantic loose curls and waves" loading="lazy">
-              </div>
-              <div class="hair-card-info">
-                <h3 class="hair-card-title">Romantic Curls</h3>
-                <span class="hair-card-style">Cascading Texture</span>
-              </div>
-            </div>
-
-            <!-- Hair Card 3 -->
-            <div class="hair-card">
-              <div class="hair-img-box">
-                <img src="assets/images/hair_braid_flowers.jpg" alt="Intricate braided hairstyle with flowers" loading="lazy">
-              </div>
-              <div class="hair-card-info">
-                <h3 class="hair-card-title">Ornate Floral Braid</h3>
-                <span class="hair-card-style">Royal South &amp; North Style</span>
-              </div>
-            </div>
-
-            <!-- Hair Card 4 -->
-            <div class="hair-card">
-              <div class="hair-img-box">
-                <img src="assets/images/hair_hollywood_waves.jpg" alt="Glossy Hollywood waves hairstyle" loading="lazy">
-              </div>
-              <div class="hair-card-info">
-                <h3 class="hair-card-title">Hollywood Waves</h3>
-                <span class="hair-card-style">High Gloss Evening</span>
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-        <div class="hair-controls">
-          <button class="btn btn-outline btn-sm" id="hairPrevBtn" aria-label="Previous hairstyles">&#8592; Previous</button>
-          <a href="#portfolio" class="text-link" id="viewAllHairstylesLink">View All Hairstyles in Portfolio &rarr;</a>
-          <button class="btn btn-outline btn-sm" id="hairNextBtn" aria-label="Next hairstyles">Next &#8594;</button>
-        </div>
-
-      </div>
-    </section>
 
     <!-- ==========================================================================
          BEAUTY SERVICES DETAIL (INTERACTIVE TABS)
@@ -941,60 +893,7 @@
       </div>
     </section>
 
-    <!-- ==========================================================================
-         THE BRIDAL EXPERIENCE (JOURNEY TIMELINE)
-         ========================================================================== -->
-    <section class="section" id="journey">
-      <div class="container">
-        
-        <div class="section-header">
-          <span class="eyebrow">STEP BY STEP</span>
-          <h2 class="section-title">Your Bridal Journey</h2>
-          <p class="section-subtitle">We guide you with ease and personal attention from your initial inquiry to your final walk down the aisle.</p>
-        </div>
 
-        <div class="timeline-grid">
-          
-          <!-- Step 01 -->
-          <div class="timeline-card">
-            <div class="timeline-step-badge">01</div>
-            <h3 class="timeline-title">Consultation</h3>
-            <p class="timeline-desc">
-              We discuss your event dates, outfit colors, personal aesthetic, and skincare preparation over tea or virtual chat.
-            </p>
-          </div>
-
-          <!-- Step 02 -->
-          <div class="timeline-card">
-            <div class="timeline-step-badge">02</div>
-            <h3 class="timeline-title">Look Planning</h3>
-            <p class="timeline-desc">
-              We design your customized mood board, test undertones, and finalize your hairstyle and jewellery placement.
-            </p>
-          </div>
-
-          <!-- Step 03 -->
-          <div class="timeline-card">
-            <div class="timeline-step-badge">03</div>
-            <h3 class="timeline-title">The Final Look</h3>
-            <p class="timeline-desc">
-              On your wedding morning, enjoy our calm, private suite environment as our team handles every exquisite detail.
-            </p>
-          </div>
-
-          <!-- Step 04 -->
-          <div class="timeline-card">
-            <div class="timeline-step-badge">04</div>
-            <h3 class="timeline-title">Your Special Day</h3>
-            <p class="timeline-desc">
-              Step into your celebration feeling serene, confident, and breathtakingly radiant from dawn to midnight.
-            </p>
-          </div>
-
-        </div>
-
-      </div>
-    </section>
 
     <!-- ==========================================================================
          TESTIMONIALS SECTION
@@ -1236,40 +1135,151 @@
     <!-- ==========================================================================
          INSTAGRAM-STYLE SOCIAL FEED SHOWCASE
          ========================================================================== -->
-    <section class="section" id="instagram">
+    <!-- ==========================================================================
+         A LITTLE MORE GLAM — REAL BRIDAL EDITORIAL SHOWCASE
+         ========================================================================== -->
+    <!-- ==========================================================================
+         A LITTLE MORE GLAM — REAL BRIDAL EDITORIAL SHOWCASE
+         ========================================================================== -->
+    <section class="section section-ivory-warm" id="instagram">
       <div class="container-wide">
         
         <div class="section-header">
-          <span class="eyebrow">@GLAMANDGRACE_STUDIO</span>
+          <span class="eyebrow">REAL BRIDES • COUTURE ARTISTRY</span>
           <h2 class="section-title">A Little More Glam</h2>
-          <p class="section-subtitle">Follow along for bridal inspiration, beauty moments, and behind-the-scenes studio artistry.</p>
+          <p class="section-subtitle">Real bridal moments celebrating pure radiance and cultural heritage. Tap any ceremony to view in spotlight, or tap the portrait for full screen.</p>
         </div>
 
-        <div class="insta-grid">
-          <div class="insta-tile">
-            <img src="assets/images/insta_1.jpg" alt="Studio beauty detail" loading="lazy">
-            <div class="insta-overlay"><span>♥ 3.2k</span></div>
+        <div class="glam-studio-layout">
+          
+          <!-- LEFT: Active Spotlight Stage -->
+          <div class="glam-spotlight" id="glamSpotlightStage" tabindex="0" role="button" aria-label="View current bride portrait fullscreen">
+            <div class="glam-spotlight-frame">
+              <img id="glamSpotlightImg" src="assets/images/glam_wedding_bride.jpg" alt="The Royal Pheras Bride" width="700" height="700">
+              <span class="glam-spotlight-badge" id="glamSpotlightBadge">✦ Wedding Day</span>
+              <button class="glam-expand-btn" aria-label="Open fullscreen image viewer">
+                <span class="expand-icon">⛶</span> Tap for Fullscreen
+              </button>
+              
+              <div class="glam-spotlight-caption">
+                <span class="glam-spotlight-tag" id="glamSpotlightTag">Wedding Ceremony • Royal Pheras</span>
+                <h3 class="glam-spotlight-title" id="glamSpotlightTitle">The Royal Pheras Bride</h3>
+                <p class="glam-spotlight-desc" id="glamSpotlightDesc">Intricate crimson velvet lehenga with authentic uncut polki choker and radiant traditional bridal makeup.</p>
+              </div>
+            </div>
           </div>
-          <div class="insta-tile">
-            <img src="assets/images/insta_2.jpg" alt="Bridal makeup moment" loading="lazy">
-            <div class="insta-overlay"><span>♥ 4.8k</span></div>
+
+          <!-- RIGHT / REEL: Interactive Ceremony Selectors -->
+          <div class="glam-selector-deck" id="glamSelectorDeck">
+            
+            <!-- Item 1: Wedding Day -->
+            <div class="glam-select-card active" tabindex="0" role="button"
+                 data-img="assets/images/glam_wedding_bride.jpg"
+                 data-badge="✦ Wedding Day"
+                 data-tag="Wedding Ceremony • Royal Pheras"
+                 data-title="The Royal Pheras Bride"
+                 data-desc="Intricate crimson velvet lehenga with authentic uncut polki choker and radiant traditional bridal makeup.">
+              <div class="glam-thumb-box">
+                <img src="assets/images/glam_wedding_bride.jpg" alt="Royal Wedding Day Bride" loading="lazy" width="100" height="100">
+              </div>
+              <div class="glam-card-meta">
+                <span class="glam-chip">✦ Wedding Day</span>
+                <h4 class="glam-card-name">The Royal Pheras Bride</h4>
+                <span class="glam-card-action">Tap to view</span>
+              </div>
+            </div>
+
+            <!-- Item 2: Engagement -->
+            <div class="glam-select-card" tabindex="0" role="button"
+                 data-img="assets/images/glam_engagement_bride.jpg"
+                 data-badge="✦ Engagement"
+                 data-tag="Sagan &amp; Ring Ceremony"
+                 data-title="Pastel Champagne Engagement"
+                 data-desc="Blush pink and champagne couture lehenga with Colombian emerald necklace and luminous glass skin.">
+              <div class="glam-thumb-box">
+                <img src="assets/images/glam_engagement_bride.jpg" alt="Pastel Champagne Engagement Bride" loading="lazy" width="100" height="100">
+              </div>
+              <div class="glam-card-meta">
+                <span class="glam-chip">✦ Engagement</span>
+                <h4 class="glam-card-name">Pastel Champagne Glam</h4>
+                <span class="glam-card-action">Tap to view</span>
+              </div>
+            </div>
+
+            <!-- Item 3: Haldi Glow -->
+            <div class="glam-select-card" tabindex="0" role="button"
+                 data-img="assets/images/glam_haldi_bride.jpg"
+                 data-badge="✦ Haldi Glow"
+                 data-tag="Haldi Morning • Floral Jewels"
+                 data-title="Sunlit Haldi Celebration"
+                 data-desc="Joyful sunshine yellow silk attire adorned with handcrafted fresh mogra and marigold floral jewelry.">
+              <div class="glam-thumb-box">
+                <img src="assets/images/glam_haldi_bride.jpg" alt="Sunlit Haldi Bride" loading="lazy" width="100" height="100">
+              </div>
+              <div class="glam-card-meta">
+                <span class="glam-chip">✦ Haldi Glow</span>
+                <h4 class="glam-card-name">Sunlit Haldi Joy</h4>
+                <span class="glam-card-action">Tap to view</span>
+              </div>
+            </div>
+
+            <!-- Item 4: Mehendi Vibe -->
+            <div class="glam-select-card" tabindex="0" role="button"
+                 data-img="assets/images/glam_mehendi_bride.jpg"
+                 data-badge="✦ Mehendi Vibe"
+                 data-tag="Mehendi Day • Henna Artistry"
+                 data-title="Boho Emerald Mehendi"
+                 data-desc="Peacock emerald green silk lehenga, delicate dark henna on hands, and braided floral hairstyle.">
+              <div class="glam-thumb-box">
+                <img src="assets/images/glam_mehendi_bride.jpg" alt="Boho Emerald Mehendi Bride" loading="lazy" width="100" height="100">
+              </div>
+              <div class="glam-card-meta">
+                <span class="glam-chip">✦ Mehendi Vibe</span>
+                <h4 class="glam-card-name">Boho Emerald Mehendi</h4>
+                <span class="glam-card-action">Tap to view</span>
+              </div>
+            </div>
+
+            <!-- Item 5: Reception Gala -->
+            <div class="glam-select-card" tabindex="0" role="button"
+                 data-img="assets/images/glam_reception_night.jpg"
+                 data-badge="✦ Reception Gala"
+                 data-tag="Reception &amp; Sangeet Night"
+                 data-title="Gala Reception Glamour"
+                 data-desc="Rose-gold sequin bridal couture gown, Hollywood glam waves, and bronze smokey eye artistry.">
+              <div class="glam-thumb-box">
+                <img src="assets/images/glam_reception_night.jpg" alt="Gala Reception Bride" loading="lazy" width="100" height="100">
+              </div>
+              <div class="glam-card-meta">
+                <span class="glam-chip">✦ Reception Gala</span>
+                <h4 class="glam-card-name">Gala Evening Glamour</h4>
+                <span class="glam-card-action">Tap to view</span>
+              </div>
+            </div>
+
+            <!-- Item 6: Heritage Silk -->
+            <div class="glam-select-card" tabindex="0" role="button"
+                 data-img="assets/images/glam_heritage_saree.jpg"
+                 data-badge="✦ Heritage Silk"
+                 data-tag="Traditional Heritage • Temple"
+                 data-title="Regal Kanjivaram Bride"
+                 data-desc="Crimson and gold Kanjivaram silk saree with 22k antique temple jewelry and fragrant jasmine gajra.">
+              <div class="glam-thumb-box">
+                <img src="assets/images/glam_heritage_saree.jpg" alt="Regal Kanjivaram Bride" loading="lazy" width="100" height="100">
+              </div>
+              <div class="glam-card-meta">
+                <span class="glam-chip">✦ Heritage Silk</span>
+                <h4 class="glam-card-name">Regal Kanjivaram Bride</h4>
+                <span class="glam-card-action">Tap to view</span>
+              </div>
+            </div>
+
           </div>
-          <div class="insta-tile">
-            <img src="assets/images/insta_3.jpg" alt="Hair styling floral details" loading="lazy">
-            <div class="insta-overlay"><span>♥ 2.9k</span></div>
-          </div>
-          <div class="insta-tile">
-            <img src="assets/images/insta_4.jpg" alt="Cosmetic formulation flatlay" loading="lazy">
-            <div class="insta-overlay"><span>♥ 5.1k</span></div>
-          </div>
-          <div class="insta-tile">
-            <img src="assets/images/insta_5.jpg" alt="Bridal portrait behind the scenes" loading="lazy">
-            <div class="insta-overlay"><span>♥ 3.7k</span></div>
-          </div>
-          <div class="insta-tile">
-            <img src="assets/images/insta_6.jpg" alt="Evening party glow" loading="lazy">
-            <div class="insta-overlay"><span>♥ 6.4k</span></div>
-          </div>
+
+        </div>
+
+        <div style="text-align: center; margin-top: 2rem;">
+          <a href="#portfolio" class="btn btn-outline btn-sm">Explore All Bridal Portfolio Looks &rarr;</a>
         </div>
 
       </div>
@@ -1331,7 +1341,7 @@
           <ul class="footer-links-list">
             <li><a href="#services-detail" class="footer-link">HD Bridal Makeup</a></li>
             <li><a href="#services-detail" class="footer-link">Airbrush Makeup</a></li>
-            <li><a href="#hair-studio" class="footer-link">Bridal Hair Artistry</a></li>
+            <li><a href="#services-detail" class="footer-link">Bridal Hair Artistry</a></li>
             <li><a href="#services-detail" class="footer-link">Botanical Facials</a></li>
             <li><a href="#packages" class="footer-link">Pre-Bridal Packages</a></li>
             <li><a href="#portfolio" class="footer-link">Reception &amp; Party Glam</a></li>
@@ -1399,6 +1409,6 @@
   </footer>
 
   <!-- Core JavaScript -->
-  <script src="js/script.js"></script>
+  <script src="js/script.js?v=2.1"></script>
 </body>
 </html>
